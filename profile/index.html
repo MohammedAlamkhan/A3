@@ -1,0 +1,83 @@
+<!--
+	Assignment 3-2 Instructions: Navigate between pages and use session storage
+
+	In this assignment, you’ll enhance the Account Profile 
+	application to save its data in session storage, 
+	navigate to a new page, and allow you to navigate back 
+	to the original page.
+
+	1. Open and run the starter folder, profile.
+	2. In the save_profile.js file, find the code in the handler 
+	for the click event of the Save button that validates the user 
+	entries. Then, find the if statement that checks the value of 
+	the isValid variable.
+
+	*3. Add code to the if statement that saves the values 
+	in the email, phone, zip, and dob constants to session storage. 
+	*4. Then, add code that uses the location object to navigate 
+	to the profile.html file.
+	
+	5. Review the code in the display_profile.js file. Note that 
+	it contains the jQuery ready event handler and a handler for 
+	the click event of the Back button.
+
+	*6. In the ready event handler, add code that retrieves 
+	the profile information from session storage and displays 
+	it in the span elements whose id attributes are “email”, 
+	“phone”, “zip”, and “dob”.
+	*7. In the handler for the click event of the Back button, add 
+	code that uses the history object to go back to the previous page.
+	*8. In index.html, change the text in the <small> tag 
+	to your name and student number.
+
+	9. Run the application, enter valid data, and click Save. 
+	After you review the data that’s displayed on the profile.html 
+	page, press F12 to open the developer tools and display 
+	the Application panel to view the data in session storage 
+	for this application.
+	10. Click on the Back button, make a change, and click Save. 
+	Then, display the Application panel of the developer tools 
+	again to see how the data in session storage has changed.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Account Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+	<main>
+		<h1>My Account Profile</h1>
+		<div>
+			<label for="email">E-Mail:</label>
+			<input type="text" name="email" id="email">
+			<span class="message"></span>
+		</div>
+		<div>
+			<label for="phone">Mobile phone:</label>
+			<input type="text" name="phone" id="phone">
+			<span class="message"></span>
+		</div>
+		<div>
+			<label for="zip">Postal Code:</label>
+			<input type="text" name="postal" id="postal">
+			<span class="message"></span>
+		</div>
+		<div>
+			<label for="dob">Date of Birth:</label>
+			<input type="text" name="dob" id="dob">
+			<span class="message"></span>
+		</div>
+		<div>
+			<label></label>
+			<input type="button" id="save" value="Save">
+		</div>
+	</main>
+	<small>&copy; "YourName/Student Number Here" 2022</small>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+   	<script src="save_profile.js"></script>
+</body>
+</html>

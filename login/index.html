@@ -1,0 +1,70 @@
+<!--
+    Assignment 3-1 Instructions: Navigate between pages and use a cookie
+
+    In this assignment, you’ll develop an application that allows 
+    you to log in, save the user data in a cookie, navigate to a 
+    new page, and log out.
+
+    1. Open and run the starter folder, login. Then, run the 
+    application to see the user interface.
+    2. Review the code in the login.js file. Note that it 
+    contains starts for four functions: getCookieByName(), 
+    setCookie(), deleteCookie(), and goToPage(). 
+    The getCookieByName() function returns an empty string, 
+    while the others contain no code.
+    3. Review the index.html file and notice that its embedded JavaScript code uses the functions in the login.js file. 
+    4. Review the login.html file and notice that its embedded JavaScript code uses the functions in the login.js file.
+
+    *5. In the login.js file, update each of the functions so they perform the tasks described by their names.
+    *6. In index.html, change the text in the <small> tag to your name and student number.
+
+    7. Run the application, enter a user name, and click Log In. When the login.html page displays, press F12 to open the developer tools and display the Storage panel (in FireFox) to view the cookies for this application. This should show the cookie for this application.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Website</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+
+<body>
+	<main>
+		<h1>My Website</h1>
+		<div>
+			<label for="user">User name:</label>
+			<input type="text" id="user">
+			<span class="message"></span>
+		</div>
+		<div>
+			<label></label>
+			<input type="button" id="login" value="Log In">
+		</div>
+	</main>
+    <small>&copy; "YourName/Student Number Here" 2022</small>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+   	<script src="login.js"></script>
+    <script>
+        "use strict";
+
+        const user = getCookieByName("user");
+        if (user) { // logged in
+            goToPage("login.html");
+        } else {
+            $("#user").focus();
+            $("#login").click( () => {
+                const user = $("#user").val();
+
+                if (user) {
+                    setCookie("user", user);
+                    goToPage("login.html");
+                } else {
+                    $("#user").next().text( "Please enter a user name." );
+                    $("#user").focus();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
