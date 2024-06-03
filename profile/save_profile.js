@@ -77,15 +77,17 @@ $(document).ready(() => {
        // If all inputs are valid
        if (isValid) {
            // Save the profile information in the session storage
+            //3 start
            sessionStorage.setItem('email', email);
            sessionStorage.setItem('phone', phone);
            sessionStorage.setItem('postal', postal);
            sessionStorage.setItem('dob', dob);
-
+            //3 end
            // Navigate to the profile.html page
+           //4 start
            window.location.href = 'profile.html';
+           //4 end
        }
-
        // Set focus on the email input field
        $("#email").focus();
    });

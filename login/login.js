@@ -1,5 +1,5 @@
 "use strict";
-
+//5 start
 // This function retrieves the value of a cookie by its name
 const getCookieByName = name => {
    // Construct the string to search for in the cookie string
@@ -44,3 +44,4 @@ const deleteCookie = name => {
 const goToPage = url => {
    window.location.href = url;
 };
+//5 end
