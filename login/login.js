@@ -37,7 +37,14 @@ const setCookie = (name, value, days) => {
 
 // This function deletes a cookie by setting its expiration date to a past date
 const deleteCookie = name => {
-   document.cookie = name + "=; Max-Age=-99999999;";
+  // Get the name of the cookie you want to delete
+const cookieName = name;
+
+// Set the cookie's expiration date to a past date
+const expirationDate = new Date(0).toUTCString();
+
+// Set the cookie with an expiration date in the past
+document.cookie = `${cookieName}=; expires=${expirationDate}; path=/`;
 };
 
 // This function navigates to the specified URL
